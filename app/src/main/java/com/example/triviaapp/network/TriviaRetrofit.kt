@@ -8,7 +8,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class TriviaRetrofit{
-    private lateinit var triviaService: TriviaService
+    private var triviaService: TriviaService
 
     init {
         triviaService = createService(retrofitInstance())

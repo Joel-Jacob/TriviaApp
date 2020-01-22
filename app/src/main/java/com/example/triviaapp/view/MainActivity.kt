@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.example.triviaapp.R
 import com.example.triviaapp.viewmodel.TriviaViewModel
@@ -33,21 +34,28 @@ class MainActivity : AppCompatActivity() {
 
     private fun getQuestions(){
         compositeDisposable.add(
-            triviaViewModel.getQuestions(getCategory(), getDifficulty()).subscribe(){triviaList->
+            triviaViewModel.getQuestions(getCategory(), getDifficulty()).subscribe({triviaList->
 
-                var triviaBundle = Bundle()
-                triviaBundle.putParcelable("questions", triviaList)
-                triviaBundle.putInt("count", 0)
+                if(triviaList.results.size == 10) {
+                    var triviaBundle = Bundle()
+                    triviaBundle.putParcelable("questions", triviaList)
+                    triviaBundle.putInt("count", 0)
 
-                questionFragment = QuestionFragment()
-                questionFragment.arguments = triviaBundle
+                    questionFragment = QuestionFragment()
+                    questionFragment.arguments = triviaBundle
 
-                supportFragmentManager
-                    .beginTransaction()
-                    .add(R.id.frame_layout, questionFragment)
-                    .disallowAddToBackStack()
-                    .commit()
-            }
+                    supportFragmentManager
+                        .beginTransaction()
+                        //.setCustomAnimations(R.anim.card_flip_in_left,R.anim.card_flip_out_left)
+                        .add(R.id.frame_layout, questionFragment)
+                        .disallowAddToBackStack()
+                        .commit()
+                }
+                else
+                    Toast.makeText(this,"This selection is not available", Toast.LENGTH_SHORT).show()
+            },{
+                Toast.makeText(this,"This selection is not available", Toast.LENGTH_SHORT).show()
+            })
         )
     }
 

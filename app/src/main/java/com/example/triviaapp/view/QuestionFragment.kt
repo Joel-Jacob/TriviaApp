@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.triviaapp.R
 import com.example.triviaapp.model.TriviaPojo
@@ -30,6 +31,9 @@ class QuestionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        chosenAnswer = ""
+
         var bundle = arguments
         var triviaPojo = bundle?.getParcelable<TriviaPojo>("questions")
         var count = bundle?.getInt("count")
@@ -45,10 +49,10 @@ class QuestionFragment : Fragment() {
 
         setOnClicks()
 
-        if (count != null) {
-            questions_next_button.setOnClickListener {
-                count += 1
 
+        questions_next_button.setOnClickListener {
+            if(chosenAnswer != "") {
+                count += 1
                 answers.add(chosenAnswer)
 
                 Log.d("TAG_X", chosenAnswer)
@@ -56,7 +60,7 @@ class QuestionFragment : Fragment() {
 
                 triviaBundle.putParcelable("questions", triviaPojo)
                 //Log.d("TAG_X",count?.let { it.toString() })
-                count?.let { it1 -> triviaBundle.putInt("count", it1) }
+                count.let { it1 -> triviaBundle.putInt("count", it1) }
                 triviaBundle.putStringArrayList("answers", answers)
 
                 if (count < 10) {
@@ -64,7 +68,7 @@ class QuestionFragment : Fragment() {
                     questionFragment.arguments = triviaBundle
 
                     var fragmentTransaction =
-                        getActivity()?.getSupportFragmentManager()?.beginTransaction()
+                        getActivity()?.getSupportFragmentManager()?.beginTransaction()//?.setCustomAnimations(R.anim.card_flip_in_left,R.anim.card_flip_out_left)
                     fragmentTransaction?.replace(R.id.frame_layout, questionFragment)
                     fragmentTransaction?.disallowAddToBackStack()
                     fragmentTransaction?.commit()
@@ -73,13 +77,15 @@ class QuestionFragment : Fragment() {
                     endFragment.arguments = triviaBundle
 
                     var fragmentTransaction =
-                        getActivity()?.getSupportFragmentManager()?.beginTransaction()
+                        getActivity()?.getSupportFragmentManager()?.beginTransaction()//?.setCustomAnimations(R.anim.card_flip_in_left,R.anim.card_flip_out_left)
                     fragmentTransaction?.replace(R.id.frame_layout, endFragment)
                     fragmentTransaction?.disallowAddToBackStack()
                     fragmentTransaction?.commit()
                 }
-
             }
+            else
+                Toast.makeText(this.context,"You must select an answer", Toast.LENGTH_SHORT).show()
+
         }
 
     }

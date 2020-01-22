@@ -39,11 +39,9 @@ class EndFragment : Fragment() {
         var answers = bundle?.getStringArrayList("answers")
 
         getCorrectNum(triviaPojo, answers)
-        end_correct_tv.text = numCorrect.toString()+"/10"
+        end_score_tv.text = numCorrect.toString()+"/10"
 
         recycler_view.layoutManager = LinearLayoutManager(this.context, RecyclerView.VERTICAL, false)
-        recycler_view.addItemDecoration(DividerItemDecoration(this.context, LinearLayoutManager.VERTICAL))
-
 
         if (triviaPojo != null) {
             recycler_view.adapter = TriviaAdapter(triviaPojo.results)

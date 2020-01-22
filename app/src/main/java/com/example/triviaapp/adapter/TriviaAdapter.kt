@@ -34,9 +34,9 @@ class TriviaAdapter(val list:List<Result>) : RecyclerView.Adapter<TriviaAdapter.
             holder.correctAnswer.text = "Correct Answer: "+Html.fromHtml(correctAnswer, Html.FROM_HTML_MODE_LEGACY).toString()
 
         if(Html.fromHtml(correctAnswer, Html.FROM_HTML_MODE_LEGACY).toString() == Html.fromHtml(pickedAnswer, Html.FROM_HTML_MODE_LEGACY).toString())
-            holder.constraintLayout.setBackgroundResource(R.color.green)
+            holder.constraintLayout.setBackgroundResource(R.drawable.green_item_bg)
         else
-            holder.constraintLayout.setBackgroundResource(R.color.red)
+            holder.constraintLayout.setBackgroundResource(R.drawable.red_item_bg)
 
     }
 
