@@ -41,6 +41,7 @@
         android:gravity="center"
         android:padding="8dp"
         android:text="@string/sample_question"
+        android:textStyle="bold"
         android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@id/question_constraint_layout"
         app:layout_constraintEnd_toEndOf="parent"

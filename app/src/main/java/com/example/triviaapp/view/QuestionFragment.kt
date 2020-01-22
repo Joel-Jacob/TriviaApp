@@ -143,6 +143,9 @@ class QuestionFragment : Fragment() {
         var answer3 = (count?.let { triviaPojo?.results?.get(it)?.incorrectAnswers?.get(2) })
         var answer4 = (count?.let { triviaPojo?.results?.get(it)?.correctAnswer })
 
+        if((Html.fromHtml(question, Html.FROM_HTML_MODE_LEGACY).toString()).length > 100)
+            questions_question_tv.setTextSize(24f)
+
         questions_question_tv.text = Html.fromHtml(question, Html.FROM_HTML_MODE_LEGACY).toString()
 
         question_button_1.text = Html.fromHtml(answer1, Html.FROM_HTML_MODE_LEGACY).toString()

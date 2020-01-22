@@ -4,4 +4,5 @@
     <string name="replay_text">replay</string>
     <string name="next_question_text">next_question</string>
     <string name="sample_question">Where is the area commonly known as the Bermuda Triangle?</string>
+    <string name="logo_text">logo</string>
 </resources>
