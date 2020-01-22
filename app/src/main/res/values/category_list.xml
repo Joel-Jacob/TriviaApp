@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories">
+        <item>Any Category</item>//nothing
+        <item>General Knowledge</item>//9
+        <item>Entertainment: Books</item>//10
+        <item>Entertainment: Film</item>//11
+        <item>Entertainment: Music</item>//12
+        <item>Entertainment: Musicals &amp; Theatres</item>//13
+        <item>Entertainment: Television</item>//14
+        <item>Entertainment: Video Games</item>//15
+        <item>Entertainment: Board Games</item>//16
+        <item>Entertainment: Comics</item>//29
+        <item>Entertainment: Japanese Anime &amp; Manga</item>//31
+        <item>Entertainment: Cartoon &amp; Animations</item>//32
+        <item>Science &amp; Nature</item>//17
+        <item>Science: Computers</item>//18
+        <item>Science: Mathematics</item>//19
+        <item>Science: Gadgets</item>//30
+        <item>Mythology</item>//20
+        <item>Sports</item>//21
+        <item>Geography</item>//22
+        <item>History</item>//23
+        <item>Politics</item>//24
+        <item>Art</item>//25
+        <item>Celebrities</item>//26
+        <item>Animals</item>//27
+        <item>Vehicles</item>//28
+    </string-array>
+</resources>
