@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    android:clickable="true">
+    android:clickable="true"
+    android:focusable="true">
 
     <TextView
         android:id="@+id/questions_number_tv"
@@ -21,6 +22,7 @@
         tools:text="99" />
 
     <ImageView
+        android:contentDescription="@string/next_question_text"
         android:id="@+id/questions_next_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -38,8 +40,8 @@
         android:background="@drawable/button_bg"
         android:gravity="center"
         android:padding="8dp"
-        android:text="Where is the area commonly known as the Bermuda Triangle?"
-        android:textSize="32dp"
+        android:text="@string/sample_question"
+        android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@id/question_constraint_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             triviaViewModel.getQuestions(getCategory(), getDifficulty()).subscribe({triviaList->
 
                 if(triviaList.results.size == 10) {
-                    var triviaBundle = Bundle()
+                    val triviaBundle = Bundle()
                     triviaBundle.putParcelable("questions", triviaList)
                     triviaBundle.putInt("count", 0)
 

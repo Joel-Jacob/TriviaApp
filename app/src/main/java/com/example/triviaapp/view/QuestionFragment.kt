@@ -24,7 +24,7 @@ class QuestionFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view: View = inflater.inflate(R.layout.questions_fragment_layout, container, false)
+        val view: View = inflater.inflate(R.layout.questions_fragment_layout, container, false)
         return view
     }
 
@@ -34,8 +34,8 @@ class QuestionFragment : Fragment() {
 
         chosenAnswer = ""
 
-        var bundle = arguments
-        var triviaPojo = bundle?.getParcelable<TriviaPojo>("questions")
+        val bundle = arguments
+        val triviaPojo = bundle?.getParcelable<TriviaPojo>("questions")
         var count = bundle?.getInt("count")
 
 
@@ -56,7 +56,7 @@ class QuestionFragment : Fragment() {
                 answers.add(chosenAnswer)
 
                 Log.d("TAG_X", chosenAnswer)
-                var triviaBundle = Bundle()
+                val triviaBundle = Bundle()
 
                 triviaBundle.putParcelable("questions", triviaPojo)
                 //Log.d("TAG_X",count?.let { it.toString() })
@@ -67,7 +67,7 @@ class QuestionFragment : Fragment() {
                     questionFragment = QuestionFragment()
                     questionFragment.arguments = triviaBundle
 
-                    var fragmentTransaction =
+                    val fragmentTransaction =
                         getActivity()?.getSupportFragmentManager()?.beginTransaction()//?.setCustomAnimations(R.anim.card_flip_in_left,R.anim.card_flip_out_left)
                     fragmentTransaction?.replace(R.id.frame_layout, questionFragment)
                     fragmentTransaction?.disallowAddToBackStack()
@@ -76,7 +76,7 @@ class QuestionFragment : Fragment() {
                     endFragment = EndFragment()
                     endFragment.arguments = triviaBundle
 
-                    var fragmentTransaction =
+                    val fragmentTransaction =
                         getActivity()?.getSupportFragmentManager()?.beginTransaction()//?.setCustomAnimations(R.anim.card_flip_in_left,R.anim.card_flip_out_left)
                     fragmentTransaction?.replace(R.id.frame_layout, endFragment)
                     fragmentTransaction?.disallowAddToBackStack()
