@@ -1,6 +1,9 @@
 package com.example.triviaapp.view
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.res.Resources
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Html
@@ -8,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.triviaapp.R
 import com.example.triviaapp.model.TriviaPojo
@@ -99,6 +103,16 @@ class QuestionFragment() : Fragment() {
 
     }
 
+    override fun onPause() {
+        super.onPause()
+        timer.cancel()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        timer.cancel()
+    }
+
     private fun getNewFragment(count: Int, triviaBundle: Bundle) {
         if (count < 10) {
             questionFragment = QuestionFragment()
@@ -128,38 +142,38 @@ class QuestionFragment() : Fragment() {
     private fun setOnClicks() {
         question_button_1.setOnClickListener {
             chosenAnswer = question_button_1.text.toString()
-            question_button_1.setBackgroundColor(resources.getColor(R.color.dark_orange))
+            question_button_1.setBackgroundResource(R.drawable.chosen_button_bg)
 
-            question_button_2.setBackgroundColor(resources.getColor(R.color.light_orange))
-            question_button_3.setBackgroundColor(resources.getColor(R.color.light_orange))
-            question_button_4.setBackgroundColor(resources.getColor(R.color.light_orange))
+            question_button_2.setBackgroundResource(R.drawable.button_bg)
+            question_button_3.setBackgroundResource(R.drawable.button_bg)
+            question_button_4.setBackgroundResource(R.drawable.button_bg)
         }
 
         question_button_2.setOnClickListener {
             chosenAnswer = question_button_2.text.toString()
-            question_button_2.setBackgroundColor(resources.getColor(R.color.dark_orange))
+            question_button_2.setBackgroundResource(R.drawable.chosen_button_bg)
 
-            question_button_1.setBackgroundColor(resources.getColor(R.color.light_orange))
-            question_button_3.setBackgroundColor(resources.getColor(R.color.light_orange))
-            question_button_4.setBackgroundColor(resources.getColor(R.color.light_orange))
+            question_button_1.setBackgroundResource(R.drawable.button_bg)
+            question_button_3.setBackgroundResource(R.drawable.button_bg)
+            question_button_4.setBackgroundResource(R.drawable.button_bg)
         }
 
         question_button_3.setOnClickListener {
             chosenAnswer = question_button_3.text.toString()
-            question_button_3.setBackgroundColor(resources.getColor(R.color.dark_orange))
+            question_button_3.setBackgroundResource(R.drawable.chosen_button_bg)
 
-            question_button_1.setBackgroundColor(resources.getColor(R.color.light_orange))
-            question_button_2.setBackgroundColor(resources.getColor(R.color.light_orange))
-            question_button_4.setBackgroundColor(resources.getColor(R.color.light_orange))
+            question_button_1.setBackgroundResource(R.drawable.button_bg)
+            question_button_2.setBackgroundResource(R.drawable.button_bg)
+            question_button_4.setBackgroundResource(R.drawable.button_bg)
         }
 
         question_button_4.setOnClickListener {
             chosenAnswer = question_button_4.text.toString()
-            question_button_4.setBackgroundColor(resources.getColor(R.color.dark_orange))
+            question_button_4.setBackgroundResource(R.drawable.chosen_button_bg)
 
-            question_button_1.setBackgroundColor(resources.getColor(R.color.light_orange))
-            question_button_2.setBackgroundColor(resources.getColor(R.color.light_orange))
-            question_button_3.setBackgroundColor(resources.getColor(R.color.light_orange))
+            question_button_1.setBackgroundResource(R.drawable.button_bg)
+            question_button_2.setBackgroundResource(R.drawable.button_bg)
+            question_button_3.setBackgroundResource(R.drawable.button_bg)
         }
 
     }
