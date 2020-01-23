@@ -1,11 +1,11 @@
 package com.example.triviaapp.view
 
-import android.app.Activity
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.example.triviaapp.R
 import com.example.triviaapp.viewmodel.TriviaViewModel
@@ -28,11 +28,28 @@ class MainActivity : AppCompatActivity() {
         start_button.setOnClickListener {
             //Log.d("Tag_X", category_spinner.selectedItem.toString()+" "+difficulty_spinner.selectedItem.toString())
             getQuestions()
+
         }
 
     }
 
+    private fun stopSpinner(){
+        spinner_layout.visibility = View.GONE
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+    }
+
     private fun getQuestions(){
+        //TODO Add Spinner
+        //TODO Make Portrait only
+
+        spinner_layout.visibility = View.VISIBLE
+        val spinner = loading_spinner.getBackground() as AnimatedVectorDrawable
+        spinner.start()
+
         compositeDisposable.add(
             triviaViewModel.getQuestions(getCategory(), getDifficulty()).subscribe({triviaList->
 
@@ -46,18 +63,26 @@ class MainActivity : AppCompatActivity() {
 
                     supportFragmentManager
                         .beginTransaction()
-                        //.setCustomAnimations(R.anim.card_flip_in_left,R.anim.card_flip_out_left)
+                        .setCustomAnimations(R.anim.card_flip_in_left,R.anim.card_flip_out_left)
                         .add(R.id.frame_layout, questionFragment)
                         .disallowAddToBackStack()
                         .commit()
+                    spinner_layout.visibility = View.GONE
+
                 }
-                else
-                    Toast.makeText(this,"This selection is not available", Toast.LENGTH_SHORT).show()
+                else {
+                    Toast.makeText(this, "This selection is not available", Toast.LENGTH_SHORT)
+                        .show()
+                    spinner_layout.visibility = View.GONE
+                }
             },{
                 Toast.makeText(this,"This selection is not available", Toast.LENGTH_SHORT).show()
             })
         )
+
     }
+
+
 
     private fun getDifficulty():String{
 

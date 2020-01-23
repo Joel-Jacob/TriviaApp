@@ -21,6 +21,22 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="99" />
 
+    <TextView
+        android:id="@+id/questions_timer_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textStyle="bold|italic"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        android:background="@drawable/timer_bg"
+
+        app:layout_constraintStart_toEndOf="@id/questions_number_tv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/questions_next_button"
+        tools:text="00:30"/>
+
+
     <ImageView
         android:contentDescription="@string/next_question_text"
         android:id="@+id/questions_next_button"

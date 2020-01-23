@@ -1,18 +1,25 @@
 package com.example.triviaapp.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.example.triviaapp.R
 import com.example.triviaapp.model.Result
 import kotlinx.android.synthetic.main.answers_item_layout.view.*
 
 class TriviaAdapter(val list:List<Result>) : RecyclerView.Adapter<TriviaAdapter.TriviaHolder>() {
+
+    private lateinit var context:Context
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TriviaHolder {
+        context = parent.context.applicationContext
+
         val view = LayoutInflater.from(parent.context).inflate(R.layout.answers_item_layout, parent, false)
         return TriviaHolder(view)
     }
@@ -37,6 +44,10 @@ class TriviaAdapter(val list:List<Result>) : RecyclerView.Adapter<TriviaAdapter.
             holder.constraintLayout.setBackgroundResource(R.drawable.green_item_bg)
         else
             holder.constraintLayout.setBackgroundResource(R.drawable.red_item_bg)
+
+        val transition =
+            AnimationUtils.loadAnimation(context, R.anim.transition_animation)
+        holder.itemView.startAnimation(transition)
 
     }
 
