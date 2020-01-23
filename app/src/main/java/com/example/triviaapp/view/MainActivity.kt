@@ -33,18 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun stopSpinner(){
-        spinner_layout.visibility = View.GONE
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-    }
-
     private fun getQuestions(){
-        //TODO Add Spinner
-        //TODO Make Portrait only
 
         spinner_layout.visibility = View.VISIBLE
         val spinner = loading_spinner.getBackground() as AnimatedVectorDrawable

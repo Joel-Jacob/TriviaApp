@@ -1,7 +1,6 @@
 package com.example.triviaapp.view
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.text.Html
@@ -10,14 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.triviaapp.R
 import com.example.triviaapp.adapter.TriviaAdapter
 import com.example.triviaapp.model.TriviaPojo
 import kotlinx.android.synthetic.main.end_screen_fragment_layout.*
-import java.util.ArrayList
+import java.util.*
 
 class EndFragment : Fragment() {
     var numCorrect = 0
