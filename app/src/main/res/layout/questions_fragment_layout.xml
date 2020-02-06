@@ -89,7 +89,7 @@
             android:layout_marginBottom="4dp"
             android:background="@drawable/button_bg"
             android:gravity="center"
-            android:padding="4dp"
+            android:padding="8dp"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/charcoal"
@@ -114,7 +114,7 @@
 
             android:textColor="@color/charcoal"
 
-            android:padding="4dp"
+            android:padding="8dp"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/question_button_4"
@@ -136,7 +136,7 @@
             android:textColor="@color/charcoal"
 
 
-            android:padding="4dp"
+            android:padding="8dp"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -156,7 +156,7 @@
             android:background="@drawable/button_bg"
             android:gravity="center"
             android:textColor="@color/charcoal"
-            android:padding="4dp"
+            android:padding="8dp"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

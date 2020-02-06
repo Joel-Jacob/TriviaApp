@@ -1,5 +1,6 @@
 package com.example.triviaapp.view
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Bundle
 import android.view.View
@@ -33,11 +34,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("NewApi")
     private fun getQuestions(){
 
         spinner_layout.visibility = View.VISIBLE
-        val spinner = loading_spinner.getBackground() as AnimatedVectorDrawable
-        spinner.start()
+        progress_cyclic.show()
 
         compositeDisposable.add(
             triviaViewModel.getQuestions(getCategory(), getDifficulty()).subscribe({triviaList->
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
                         .add(R.id.frame_layout, questionFragment)
                         .disallowAddToBackStack()
                         .commit()
+
                     spinner_layout.visibility = View.GONE
 
                 }
@@ -65,9 +67,9 @@ class MainActivity : AppCompatActivity() {
                     spinner_layout.visibility = View.GONE
                 }
             },{
-                Toast.makeText(this,"This selection is not available", Toast.LENGTH_SHORT).show()
-            })
-        )
+                Toast.makeText(this,"Check for internet connectivity", Toast.LENGTH_SHORT).show()
+                spinner_layout.visibility = View.GONE
+            }))
 
     }
 

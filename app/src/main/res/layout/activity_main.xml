@@ -12,6 +12,7 @@
         android:layout_height="200dp"
         android:background="@drawable/logo_bg"
         android:contentDescription="@string/logo_text"
+        android:padding="8dp"
         android:src="@drawable/trivia_logo"
         app:layout_constraintBottom_toTopOf="@id/category_spinner"
         app:layout_constraintEnd_toEndOf="@id/category_spinner"
@@ -78,15 +79,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
 
-
-        <ImageView
-            android:id="@+id/loading_spinner"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/avd_anim"
-            android:src="@drawable/avd_anim"
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progress_cyclic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/progressBarStyleLarge"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
